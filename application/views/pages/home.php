@@ -11,20 +11,28 @@
 
 
 
-        <h3><?php echo $page_item['title']; ?></h3>
+        <h3><?php //echo $page_item['title']; ?></h3>
         <div class="main">
-                <?php echo $page_item['text']; ?>
+                <?php //echo $page_item['text']; ?>
         </div>
-        <p><a href="<?php echo site_url('news/'.$page_item['slug']); ?>">View article</a></p>
+        <p><a href="<?php //echo site_url('news/'.$page_item['slug']); ?>">View article</a></p>
 
-<?php echo form_open('pages/searchuser'); ?>
+<?php
+$attributes = array('name' => 'usercheck','id'=>'usercheck');
+echo form_open('pages/searchuser',$attributes); ?>
 
     <label for="title">Title</label>
-    <input type="input" name="title" /><br />
+    <input type="input" name="title" id="username" /><br />
+    <input type="hidden" id="con_path" value="<?php echo base_url('application/controllers').'/'.$this->router->fetch_class();?>"/>
 
-    <label for="text">Text</label>
-    <textarea name="text"></textarea><br />
+<!--    <label for="text">Text</label>
+    <textarea name="text"></textarea><br />-->
 
-    <input type="submit" name="submit" value="Create news item" />
+    <input id="getuser" type="submit" name="submit" value="Create news item" />
 
 </form>
+<div id="notification-bar"></div>
+<div id="userhandle"> </div>
+<div class="follower_count"></div>
+<div class="followers_avatar"></div>
+<a href="" class="load_more">Show More</a>

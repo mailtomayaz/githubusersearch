@@ -23,4 +23,17 @@ class Page_model extends CI_Model {
         $query = $this->db->get_where('page', array('slug' => $slug));
         return $query->row_array();
 }
+public  function check_user(){
+       $this->load->helper('url');
+
+    $slug = url_title($this->input->post('title'), 'dash', TRUE);
+
+    $data = array(
+        'title' => $this->input->post('title'),
+        'slug' => $slug,
+        'text' => $this->input->post('text')
+    );
+
+    return $this->db->insert('page', $data);
+}
 }
