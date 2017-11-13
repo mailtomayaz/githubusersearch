@@ -23,7 +23,7 @@ echo form_open('pages/searchuser',$attributes); ?>
 
     <label for="title">Title</label>
     <input type="input" name="title" id="username" /><br />
-    <input type="hidden" id="con_path" value="<?php echo base_url('application/controllers').'/'.$this->router->fetch_class();?>"/>
+    <input type="hidden" id="con_pag" value='1' />
 
 <!--    <label for="text">Text</label>
     <textarea name="text"></textarea><br />-->
@@ -35,4 +35,4 @@ echo form_open('pages/searchuser',$attributes); ?>
 <div id="userhandle"> </div>
 <div class="follower_count"></div>
 <div class="followers_avatar"></div>
-<a href="" class="load_more">Show More</a>
+<a href="#" id="load_more" >Show More</a>

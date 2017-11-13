@@ -29,12 +29,12 @@ class Pages extends CI_Controller {
     public function searchuser($user='',$pg='') {
         //die('gttt');
         $data['title'] = 'Create a news item';
-        $this->form_validation->set_rules('title', 'Title', 'required');
-        $this->form_validation->set_rules('text', 'Text', 'required');
+        //$this->form_validation->set_rules('title', 'Title', 'required');
+       // $this->form_validation->set_rules('text', 'Text', 'required');
         $this->load->view('templates/header', $data);
-        $this->load->view('pages/home');
-        $this->load->view('templates/footer');
-        $username = trim($this->input->post('title'));
+        //$this->load->view('pages/home');
+       // $this->load->view('templates/footer');
+        //$username = trim($this->input->post('title'));
         //print_r($this->input->post());
         // Get cURL resource
         $curl = curl_init();
@@ -88,6 +88,11 @@ class Pages extends CI_Controller {
                     $htmlData .='</tr>';
          
                 }
+          $htmlData .= '<tr>';
+          $htmlData .= '<td><input type="hidden" value="1"></td>';
+          //$htmlData .= '<th>URL</th>';
+          //$htmlData .= '<th>Avatar</th>';
+          $htmlData .= '</tr>';
           $htmlData .='</table>';
           }
          
